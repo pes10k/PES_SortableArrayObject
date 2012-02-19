@@ -18,7 +18,12 @@ class PES_SortableArrayObject extends ArrayObject {
 	public function sortArraysByKey($key, $direction = 'ASC') {
 
 		$array = $this->getArrayCopy();
-		
+        
+        if (empty($array)) {
+
+            return new PES_SortableArrayObject();
+        }
+
 		$sort_values = array();
 		$keys = array_keys($array);
 		

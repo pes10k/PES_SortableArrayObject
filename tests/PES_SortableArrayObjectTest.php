@@ -4,6 +4,16 @@ include dirname(__FILE__) . '/../PES/SortableArrayObject.php';
 
 class PES_SortableArrayObjectTest extends PHPUnit_Framework_TestCase {
 
+    public function testEmptyArray() {
+
+        $empty_array = array();
+
+        $sorter = new PES_SortableArrayObject($empty_array);
+        $result = $sorter->sortArraysByKey("non-existant-key");
+
+        $this->assertEquals($empty_array, $result->getArrayCopy());
+    }
+
     public function testSortArraysByKey() {
     
         $rap_masters = array(
